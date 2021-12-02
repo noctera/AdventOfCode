@@ -1,8 +1,7 @@
 target_include_directories(AdventOfCode PRIVATE .)
 target_sources(AdventOfCode 
 PRIVATE 
-    main.cpp
+    01SonarSweep.cpp
+    02Dive.cpp
 )
-
-add_subdirectory(TaskAlgorithms)
 

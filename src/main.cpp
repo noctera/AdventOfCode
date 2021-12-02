@@ -3,41 +3,18 @@
 #include <string>
 #include <vector>
 
+#include "./TaskAlgorithms/01SonarSweep.cpp"
+#include "./TaskAlgorithms/02Dive.cpp"
+
 int main () {
-    std::ifstream file ("/home/julian/HelloWorld/src/numbers.txt");
 
-    std::vector<int> parsedNumbers;
-
-    if (file.is_open ()) {
-        std::string tempNum;
-        while (std::getline (file, tempNum)) {
-            parsedNumbers.push_back (std::stoi (tempNum));
-        }
-    }
-
-    int increasedNumbersOne = 0;
-    int increasedNumbersTwo = 0;
-
-    // increased numbers part two
-    for (int i = 0; i < parsedNumbers.size (); ++i) {
-        if (i == 0 || i == parsedNumbers.size ()) {
-            continue;
-        }
-        if (parsedNumbers[i] > parsedNumbers[i - 1]) {
-            ++increasedNumbersOne;
-        }
-    }
-
-    // increased numbers part two
-    for (int i = 0; i < parsedNumbers.size (); ++i) {
-        if (i == 0 || i >= parsedNumbers.size () - 1) {
-            continue;
-        }
-        if ((parsedNumbers[i] + parsedNumbers[i + 1] + parsedNumbers[i + 2]) > (parsedNumbers[i - 1] + parsedNumbers[i] + parsedNumbers[i + 1])) {
-            ++increasedNumbersTwo;
-        }
-    }
-
-    std::cout << "Part 1: " << increasedNumbersOne << std::endl;
-    std::cout << "Part 2: " << increasedNumbersTwo << std::endl;
+    std::cout << "Sonar Sweep" << std::endl;
+    auto sonarSweepData = SonarSweep::loadFile ("/home/julian/AdventOfCode/Numbers/01.txt");
+    std::cout << "Part 1: " << SonarSweep::partOne (sonarSweepData) << std::endl;
+    std::cout << "Part 2: " << SonarSweep::partTwo (sonarSweepData) << std::endl;
+    std::cout << "--------------------------------------------" << std::endl;
+    std::cout << "Dive!" << std::endl;
+    auto diveData = Dive::loadFile ("/home/julian/AdventOfCode/Numbers/02.txt");
+    std::cout << "Part 1: " << Dive::partOne (diveData) << std::endl;
+    std::cout << "Part 2: " << Dive::partTwo (diveData) << std::endl;
 }

@@ -13,3 +13,4 @@ set_property(TARGET AdventOfCode
 
 
 add_subdirectory(src)
+add_subdirectory(utils)
